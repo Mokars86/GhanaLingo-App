@@ -1,0 +1,7 @@
+{
+  "name": "GhanaLingo",
+  "description": "Learn Ghanaian languages (Twi, Ga, Ewe, Dagbani) with an audio-first, culturally immersive experience.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
