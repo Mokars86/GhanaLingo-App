@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
@@ -32,11 +34,34 @@
         width: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: #E8DCC4;
+        background: transparent;
       }
       ::-webkit-scrollbar-thumb {
         background: #006B3F;
         border-radius: 4px;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in-up {
+        animation: fade-in-up 0.3s ease-out forwards;
+      }
+      
+      .transition-theme {
+        transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
       }
     </style>
   <script type="importmap">
@@ -51,7 +76,7 @@
 }
 </script>
 </head>
-  <body class="bg-ghana-clay text-gray-900 h-screen w-screen overflow-hidden selection:bg-ghana-gold selection:text-ghana-black">
-    <div id="root"></div>
+  <body class="bg-ghana-clay dark:bg-[#121212] text-gray-900 dark:text-gray-100 h-screen w-screen overflow-hidden transition-theme selection:bg-ghana-gold selection:text-ghana-black">
+    <div id="root" class="h-full"></div>
   </body>
 </html>

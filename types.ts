@@ -1,3 +1,4 @@
+
 export enum ScreenName {
   SPLASH = 'SPLASH',
   ONBOARDING = 'ONBOARDING',
@@ -9,8 +10,22 @@ export enum ScreenName {
   QUIZ = 'QUIZ',
   CULTURE = 'CULTURE',
   PROFILE = 'PROFILE',
-  CONVERSATION = 'CONVERSATION'
+  CONVERSATION = 'CONVERSATION',
+  SUBSCRIPTION = 'SUBSCRIPTION',
+  HISTORY = 'HISTORY',
+  CONSTITUTION = 'CONSTITUTION',
+  LANDMARKS = 'LANDMARKS',
+  CUISINE = 'CUISINE',
+  LEADERS = 'LEADERS'
 }
+
+export enum PlanType {
+  BASIC = 'BASIC',
+  INTERMEDIATE = 'INTERMEDIATE',
+  EXPERT = 'EXPERT'
+}
+
+export type Nationality = 'Ghanaian' | 'Foreigner';
 
 export interface Language {
   id: string;
@@ -27,6 +42,7 @@ export interface Lesson {
   level: number;
   locked: boolean;
   category: 'vocabulary' | 'grammar' | 'conversation';
+  requiredPlan: PlanType;
 }
 
 export interface UserProgress {
@@ -34,6 +50,8 @@ export interface UserProgress {
   xp: number;
   lessonsCompleted: number;
   selectedLanguage: string | null;
+  plan: PlanType;
+  nationality: Nationality;
 }
 
 export interface QuizQuestion {
@@ -46,5 +64,16 @@ export interface QuizQuestion {
 export interface CulturalFact {
   title: string;
   content: string;
-  category: 'Proverb' | 'History' | 'Food';
+  category: 'Proverb' | 'History' | 'Food' | 'Landmark';
+  mapUrl?: string;
+  recipe?: string[];
+  detailedContent?: string;
+}
+
+export interface GhanaLeader {
+  name: string;
+  title: string;
+  period: string;
+  achievement: string;
+  era: 'Pre-Colonial' | 'Colonial' | 'First Republic' | 'Military' | 'Fourth Republic';
 }
